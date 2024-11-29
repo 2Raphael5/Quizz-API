@@ -53,7 +53,7 @@ Raphaël :
 
 Evan :
 
--
+- J'ai finaliser le MLD et desigé 3 pages.
 
 Julien :
 
