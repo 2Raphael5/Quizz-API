@@ -52,4 +52,4 @@ J'ai fait le readme du site.
 Evan :
 Julien :
 Raphaël :
-J'ai finis les partis fonctionnalité et but du readme
+J'ai finis les partis fonctionnalité et but du readme et est fait le model architectural du site
