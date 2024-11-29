@@ -1,10 +1,9 @@
-// Sélection des éléments
 let btnsChoix = document.querySelectorAll(".proposition div");
 let btnsConnexion = document.querySelectorAll(".choixConnection button");
 let titreQuestion = document.querySelector(".question");
 let imgProfile = document.querySelector("#imgProfile");
 let btnDeconnexion = document.querySelector(".btnDeconnexion");
-let connecter = true;
+let connecter = false;
 const burgerIcon = document.querySelector('.burger-icon');
 const menu = document.querySelector('.menu');
 
@@ -14,7 +13,6 @@ burgerIcon.addEventListener('click', () => {
 });
 
 if (!connecter) {
-
     titreQuestion.style.display = "none";
     burgerIcon.style.display = "none";
     imgProfile.style.display = "none";
@@ -28,7 +26,6 @@ if (!connecter) {
         element.style.display = "block";
     });
 } else {
-
     titreQuestion.style.display = "block";
     burgerIcon.style.display = "block";
     imgProfile.style.display = "block";
@@ -41,5 +38,4 @@ if (!connecter) {
     btnsConnexion.forEach(element => {
         element.style.display = "none";
     });
-
 }
