@@ -40,7 +40,8 @@ Le site :
 ## Journal de bord
 ##### 22.11.2024
 
-Tout : Nous avons décidé ce que ferait notre site (un quizz) et nous avons répartie entre nous les différentes parties du site (Evan: site +MCD/MLD; Julien: SQL + question; Raphaël:Liason site SQL + administration).
+Tout : Nous avons décidé ce que ferait notre site (un quizz) et nous avons répartie entre nous les différentes parties du site
+(Evan: site +MCD/MLD; Julien: SQL + question; Raphaël:Liason site SQL + administration).
 
 Evan :
 Jai commencer a former l'index du site et jai fait le MLD et le MCD.
