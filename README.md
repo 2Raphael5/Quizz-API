@@ -2,8 +2,8 @@
 
 ## Participant
 
-Evan Alpsteg
-Raphaël Ahimon
+Evan Alpsteg,
+Raphaël Ahimon,
 Julien Brancato
 
 ---
@@ -44,11 +44,18 @@ Tout : Nous avons décidé ce que ferait notre site (un quizz) et nous avons ré
 (Evan: site +MCD/MLD; Julien: SQL + question; Raphaël:Liason site SQL + administration).
 
 Evan :
+
 - Jai commencer a former l'index du site et jai fait le MLD et le MCD.
+  
 Julien :
+
 - J'ai commencer le sql du site.
+  
 Raphaël :
+
 - J'ai fait le readme du site.
+
+  
 ##### 29.11.2024
 
 Evan :
