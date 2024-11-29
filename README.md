@@ -44,13 +44,20 @@ Tout : Nous avons décidé ce que ferait notre site (un quizz) et nous avons ré
 (Evan: site +MCD/MLD; Julien: SQL + question; Raphaël:Liason site SQL + administration).
 
 Evan :
-Jai commencer a former l'index du site et jai fait le MLD et le MCD.
+- Jai commencer a former l'index du site et jai fait le MLD et le MCD.
 Julien :
-J'ai commencer le sql du site.
+- J'ai commencer le sql du site.
 Raphaël :
-J'ai fait le readme du site.
+- J'ai fait le readme du site.
 ##### 29.11.2024
+
 Evan :
+
+-
+
 Julien :
+
+- J'ai fini la base et commence a ajouter les questions
+
 Raphaël :
-J'ai finis les partis fonctionnalité et but du readme et est fait le model architectural du site
+- J'ai finis les partis fonctionnalité et but du readme et est fait le model architectural du site
