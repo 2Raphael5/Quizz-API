@@ -21,7 +21,8 @@ $confPassword = filter_input(INPUT_POST,"confPassword",FILTER_SANITIZE_FULL_SPEC
     <div class="container">
         <h1>Confirmer</h1>
         <p>Merci de votre Inscription</p><br>
-        <form>
+        <form action="../index.html">
+            <input type="hidden" value="connecterYes" name="connecter">
             <input type="submit" name="submit" id="submit" value="Jouer">
         </form>
     </div>

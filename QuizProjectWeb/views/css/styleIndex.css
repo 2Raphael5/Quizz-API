@@ -1,9 +1,12 @@
 body {
+    width: 100%;
+    height: 100%;
     padding: 0;
     margin: 0;
     font-family: Arial, sans-serif;
     background-color: #f8f8f8;
     color: #333;
+    overflow: hidden;
 }
 
 h1 {
@@ -174,3 +177,13 @@ button:hover{
 a{
     text-decoration: none;
 }
+
+#divInformatique{
+    width: 100%;
+    height: 100vh;
+    position: absolute;
+    top: 10vh;
+}
+#divAccueil{
+    text-align: center;
+} 

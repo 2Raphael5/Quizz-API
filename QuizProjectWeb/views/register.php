@@ -38,7 +38,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <body>
     <div class="container">
     <h1>Inscription</h1>
-    <form action="./register.php" method="post">
+    <form action="#" method="post">
         <?php
         if($erreur){
             echo "<p class='error'>Tout les champs doivent etre remplie</p>";

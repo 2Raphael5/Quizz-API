@@ -11,9 +11,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if (empty($email) || empty($password)) {
         $erreur = true;
     }
-    else if(/*regarder si le mdp et lemail correspondes a ceux dans la base de donnee*/){
+    /*else if(regarder si le mdp et lemail correspondes a ceux dans la base de donnee){
         $erreurMDP = true;
-    }
+    }*/
     else{
         header('Location: ../index.php');    
         $erreur = false;
@@ -47,6 +47,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <input type="password" name="password" id="password" placeholder="Mot de passe" required>
         <input type="submit" name="submit" id="submit" value="Confirmer">
     </form>
+    <br>
+    <a href="register.php">Vous n'avez pas de compte ?</a>
     </div>
 
 </body>
