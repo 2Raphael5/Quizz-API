@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/styleProfile.css">
+    <title>Profile Card Flip</title>
+</head>
+<body>
+    <div class="card-container" onclick="flipCard()">
+        <div class="card">
+            <div class="card-front">
+                <img id="imgProfileUser" src="./img/bassem.jpg" alt="Profile Picture">
+                <h1>@Bassem</h1>
+                <p>Email: Bassem@eduge.ch</p>
+                <p>Langue: Français</p>
+                <p>Score : 69</p>
+
+                <form action="profile.html" method="post">
+                    <label for="newEmail">Changer l'email</label>
+                    <input type="text" id="newEmail" name="newEmail" placeholder="Nouvel Email">
+
+                    <label for="newMdp">Changer Mot de Passe</label>
+                    <input type="password" id="newMdp" name="newMdp" placeholder="Nouveau Mot de Passe">
+                    <select name="selectLangue" id="selectLangue">
+                        <option value="FR">Francais</option>
+                        <option value="EN">English</option>
+                        <option value="DE">Deutsh</option>
+                        <option value="ES">Espagnol</option>
+                        <option value="IT">Italien</option>
+                        <option value="NL">Néerlandais</option>
+                    </select>
+                    <input type="submit" value="Confirmer les changements">
+                </form>
+            </div>
+            
+            <div class="card-back">
+                <img src="./img/arriereCarte.png" alt="Background Image" id="backImage">
+            </div>
+        </div>
+    </div>
+
+    <script src="../JS/scriptProfile.js"></script>
+</body>
+</html>

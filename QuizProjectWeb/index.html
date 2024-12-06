@@ -1,5 +1,5 @@
 <?php
-connecterYes = filter_input(INPUT_POST,"connecter",FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+$connecterYes = filter_input(INPUT_POST,"connecter",FILTER_SANITIZE_FULL_SPECIAL_CHARS);
 
 ?>
 
@@ -13,7 +13,7 @@ connecterYes = filter_input(INPUT_POST,"connecter",FILTER_SANITIZE_FULL_SPECIAL_
 </head>
 <body>
     <header>
-        <a href="./views/profile.php"><img id="imgProfile" src="./img/User.png" alt="ImageUser"></a>
+        <a href="./views/profile.html"><img id="imgProfile" src="./img/User.png" alt="ImageUser"></a>
         <h1>JER Quiz</h1>
         <button class="btnDeconnexion">Se Deconnecter</button>
     </header>
