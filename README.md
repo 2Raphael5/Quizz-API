@@ -68,3 +68,17 @@ Julien :
 
 Raphaël :
 - J'ai finis les partis fonctionnalité et but du readme et est fait le model architectural du site
+
+
+##### 06.12.2024
+
+Evan :
+
+- J'ai finaliser le MLD et designé 3 pages.
+
+Julien :
+
+- J'ai fini la base et commence a ajouter les questions
+
+Raphaël :
+- J'ai finis les partis fonctionnalité et but du readme et est fait le model architectural du site
