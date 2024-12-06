@@ -74,7 +74,7 @@ Raphaël :
 
 Evan :
 
-- J'ai finaliser le MLD et designé 3 pages.
+- J'ai fini la conception de certaines pages et j'ai ajouter des verifications.
 
 Julien :
 
