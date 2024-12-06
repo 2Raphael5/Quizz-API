@@ -78,7 +78,7 @@ Evan :
 
 Julien :
 
-- J'ai fini la base et commence a ajouter les questions
+- J'ai ajouté des informations à la base de donnée.
 
 Raphaël :
-- J'ai finis les partis fonctionnalité et but du readme et est fait le model architectural du site
+- J'ai commencé à relier la partie php avec la partie SQL
