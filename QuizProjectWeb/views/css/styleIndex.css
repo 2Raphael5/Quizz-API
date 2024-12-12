@@ -187,3 +187,6 @@ a{
 #divAccueil{
     text-align: center;
 } 
+#divInformatique, #divMusique, #divCultureG, #divLoisir {
+    display: none;
+}

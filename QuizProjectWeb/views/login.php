@@ -1,6 +1,17 @@
 <?php
-$email = filter_input(INPUT_POST,"email",FILTER_SANITIZE_EMAIL);
-$password = filter_input(INPUT_POST,"password",FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+$servername = "localhost";
+$username = "root";
+$password = "Super";
+
+try {
+  $conn = new PDO("mysql:host=$servername;dbname=quiz", $username, $password);
+  $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+} catch(PDOException $e) {
+  echo "Connection failed: " . $e->getMessage();
+}
+
+$email = filter_input(INPUT_POST, "email", FILTER_SANITIZE_EMAIL);
+$password = filter_input(INPUT_POST, "password", FILTER_SANITIZE_FULL_SPECIAL_CHARS);
 $erreur = false;
 $erreurMDP = false;
 
@@ -10,14 +21,25 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     
     if (empty($email) || empty($password)) {
         $erreur = true;
-    }
-    /*else if(regarder si le mdp et lemail correspondes a ceux dans la base de donnee){
-        $erreurMDP = true;
-    }*/
-    else{
-        header('Location: ../index.php');    
-        $erreur = false;
-        $erreurMDP = false;
+    } else {
+        $sql = "SELECT * FROM users WHERE email = :email";
+        $stmt = $conn->prepare($sql);
+        $stmt->bindParam(':email', $email, PDO::PARAM_STR);
+        $stmt->execute();
+        
+        if ($stmt->rowCount() > 0) {
+            $user = $stmt->fetch(PDO::FETCH_ASSOC);
+            
+            if (password_verify($password, $user['password'])) {
+                header('Location: ../index.php');
+                exit();
+            } else {
+                $erreurMDP = true;
+            }
+        } else {
+            header('Location: register.php'); 
+            exit();
+        }
     }
 }
 ?>
