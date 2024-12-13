@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : localhost:3306
--- Généré le : ven. 06 déc. 2024 à 16:05
+-- Généré le : ven. 13 déc. 2024 à 09:20
 -- Version du serveur : 10.6.18-MariaDB-0ubuntu0.22.04.1
 -- Version de PHP : 8.1.2-1ubuntu2.19
 
@@ -42,7 +42,12 @@ CREATE TABLE `Information` (
 --
 
 INSERT INTO `Information` (`id`, `anecdote`, `wiki`, `question_id`, `langue_id`) VALUES
-(1, 'Cette ville de l\'État de Washington abrite le siège social de l\'éditeur de logiciels Microsoft et de la branche américaine de Nintendo', 'https://fr.wikipedia.org/wiki/Redmond_(Washington)', 1, 1);
+(1, 'Cette ville de l\'État de Washington abrite le siège social de l\'éditeur de logiciels Microsoft et de la branche américaine de Nintendo', 'https://fr.wikipedia.org/wiki/Redmond_(Washington)', 1, 1),
+(2, 'This Washington state town is home to the headquarters of the Microsoft software publisher and the American branch of Nintendo.', 'https://en.wikipedia.org/wiki/Redmond,_Washington', 2, 2),
+(3, 'In dieser Stadt im US-Bundesstaat Washington befinden sich der Hauptsitz des Microsoft-Softwareherstellers und die amerikanische Niederlassung von Nintendo.', 'https://de.wikipedia.org/wiki/Redmond_(Washington)', 3, 3),
+(4, 'Esta ciudad del estado de Washington alberga la sede del editor de software de Microsoft y la sucursal estadounidense de Nintendo.', 'https://es.wikipedia.org/wiki/Redmond_(Washington)', 4, 4),
+(5, 'Questa città dello stato di Washington ospita la sede del produttore di software Microsoft e la filiale americana di Nintendo.', 'https://it.wikipedia.org/wiki/Redmond_(Washington)', 5, 5),
+(6, 'Deze staat in de staat Washington is de thuisbasis van het hoofdkantoor van de Microsoft software-uitgever en de Amerikaanse tak van Nintendo.', 'https://nl.wikipedia.org/wiki/Redmond_(Washington)', 6, 6);
 
 -- --------------------------------------------------------
 
@@ -146,7 +151,6 @@ CREATE TABLE `Quiz` (
   `id` int(11) NOT NULL,
   `title` varchar(255) NOT NULL,
   `level` int(11) NOT NULL,
-  `creationDate` date NOT NULL,
   `language_id` int(11) NOT NULL,
   `theme_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
@@ -155,13 +159,61 @@ CREATE TABLE `Quiz` (
 -- Déchargement des données de la table `Quiz`
 --
 
-INSERT INTO `Quiz` (`id`, `title`, `level`, `creationDate`, `language_id`, `theme_id`) VALUES
-(1, 'Emplacement Microsoft', 1, '2024-12-06', 1, 1),
-(2, 'Microsoft location', 1, '2024-12-06', 2, 2),
-(3, 'Microsoft-Standort', 1, '2024-12-06', 3, 3),
-(4, 'Ubicación de Microsoft', 1, '2024-12-06', 4, 4),
-(5, 'Sede Microsoft', 1, '2024-12-06', 5, 5),
-(6, 'Microsoft-locatie', 1, '2024-12-06', 6, 6);
+INSERT INTO `Quiz` (`id`, `title`, `level`, `language_id`, `theme_id`) VALUES
+(1, 'Emplacement Microsoft', 1, 1, 1),
+(2, 'Microsoft location', 1, 2, 2),
+(3, 'Microsoft-Standort', 1, 3, 3),
+(4, 'Ubicación de Microsoft', 1, 4, 4),
+(5, 'Sede Microsoft', 1, 5, 5),
+(6, 'Microsoft-locatie', 1, 6, 6),
+(7, 'Console de jeux de Microsoft', 1, 1, 1),
+(8, 'Microsoft game console', 1, 2, 2),
+(9, 'Spielkonsole von Microsoft', 1, 3, 3),
+(10, 'Consola de juegos de Microsoft', 1, 4, 4),
+(11, 'Console di gioco di Microsoft', 1, 5, 5),
+(12, 'Microsoft Game Console', 1, 6, 6),
+(13, 'Cofondateur de la société Microsoft', 1, 1, 1),
+(14, 'Co-founder of Microsoft Corporation', 1, 2, 2),
+(15, 'Mitgründer der Microsoft Corporation', 1, 3, 3),
+(16, 'Cofundador de Microsoft Corporation', 1, 4, 4),
+(17, 'Co-fondatore di Microsoft Corporation', 1, 5, 5),
+(18, 'Mede-oprichter van Microsoft Corporation', 1, 6, 6),
+(19, 'Simulateur de vol conçu par Microsoft', 1, 1, 1),
+(20, 'Flight simulator developed by Microsoft', 1, 2, 2),
+(21, 'Flugsimulator entwickelt von Microsoft', 1, 3, 3),
+(22, 'Simulador de vuelo desarrollado por Microsoft', 1, 4, 4),
+(23, 'Simulatori di volo sviluppati da Microsoft', 1, 5, 5),
+(24, 'Vliegtuigsimulator ontwikkeld door Microsoft', 1, 6, 6),
+(25, 'Téléphone Microsoft', 1, 1, 1),
+(26, 'Microsoft smartphone', 1, 2, 2),
+(27, 'Microsoft-Smartphone', 1, 3, 3),
+(28, 'Smartphone de Microsoft', 1, 4, 4),
+(29, 'Smartphone di Microsoft', 1, 5, 5),
+(30, 'Microsoft-smartphone', 1, 6, 6),
+(31, 'Système exploitation', 1, 1, 1),
+(32, 'Operating system', 1, 2, 2),
+(33, 'Betriebssystem', 1, 3, 3),
+(34, 'Sistema operativo', 1, 4, 4),
+(35, 'Sistema operativo', 1, 5, 5),
+(36, 'Besturingssysteem', 1, 6, 6),
+(37, 'Service de stockage en ligne de Microsoft', 1, 1, 1),
+(38, 'Microsoft online storage service', 1, 2, 2),
+(39, 'Microsoft Online-Speicherdienst', 1, 3, 3),
+(40, 'Servicio de almacenamiento en línea de Microsoft', 1, 4, 4),
+(41, 'Servizio di archiviazione online di Microsoft', 1, 5, 5),
+(42, 'Microsoft online opslagservice', 1, 6, 6),
+(43, 'Nom de la tablette de Microsoft', 1, 1, 1),
+(44, 'Microsoft tablet name', 1, 2, 2),
+(45, 'Name des Microsoft-Tablets', 1, 3, 3),
+(46, 'Nombre de la tableta de Microsoft', 1, 4, 4),
+(47, 'Nome del tablet Microsoft', 1, 5, 5),
+(48, 'Naam van de Microsoft-tablet', 1, 6, 6),
+(49, 'Année de création de Microsoft Corporation', 1, 1, 1),
+(50, 'Year of creation of Microsoft Corporation', 1, 2, 2),
+(51, 'Gründungsjahr der Microsoft Corporation', 1, 3, 3),
+(52, 'Año de creación de Microsoft Corporation', 1, 4, 4),
+(53, 'Anno di fondazione della Microsoft Corporation', 1, 5, 5),
+(54, 'Oprichtingsjaar van Microsoft Corporation', 1, 6, 6);
 
 -- --------------------------------------------------------
 
@@ -301,7 +353,7 @@ ALTER TABLE `User`
 -- AUTO_INCREMENT pour la table `Information`
 --
 ALTER TABLE `Information`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT pour la table `Language`
@@ -325,7 +377,7 @@ ALTER TABLE `Question`
 -- AUTO_INCREMENT pour la table `Quiz`
 --
 ALTER TABLE `Quiz`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=55;
 
 --
 -- AUTO_INCREMENT pour la table `Score`
