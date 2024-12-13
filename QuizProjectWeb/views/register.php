@@ -1,15 +1,11 @@
 <?php
-$servername = "localhost";
-$username = "root";
-$password = "Super";
-$dbname = "Quiz";
-
-try {
-    $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
+require_once "./controler/data.php";
+/*try {
+    $conn = new PDO("mysql:host=DBHOST;dbname=",DBNAME, DBUSER, DBPASS);
     $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 } catch(PDOException $e) {
     echo "Connection failed: " . $e->getMessage();
-}
+}*/
 
 $pseudo = filter_input(INPUT_POST, "pseudo", FILTER_SANITIZE_FULL_SPECIAL_CHARS);
 $email = filter_input(INPUT_POST, "email", FILTER_SANITIZE_EMAIL);
@@ -35,20 +31,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $erreurEmail = true;
     } 
     else {
-        $stmt = $conn->prepare("SELECT * FROM User WHERE email = :email"); 
-        $stmt->bindParam(':email', $email);
-        $stmt->execute();
-        
+
+        SelectUser($email);
         if ($stmt->rowCount() > 0) {
             echo "<p class='error'>Cet email est déjà utilisé. Veuillez en choisir un autre.</p>";
         } else {
             $hashedPassword = password_hash($password, PASSWORD_BCRYPT);
 
-            $stmt = $conn->prepare("INSERT INTO User (username, email, password) VALUES (:pseudo, :email, :password)");
-            $stmt->bindParam(':pseudo', $pseudo);
-            $stmt->bindParam(':email', $email);
-            $stmt->bindParam(':password', $hashedPassword);
-            $stmt->execute();
+            InsertUser($pseudo,$email,$hashedPassword);
             header('Location: ./confiramtionInscription.php');
             exit();
         }
