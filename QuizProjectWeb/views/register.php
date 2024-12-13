@@ -2,7 +2,7 @@
 $servername = "localhost";
 $username = "root";
 $password = "Super";
-$dbname = "quiz";
+$dbname = "Quiz";
 
 try {
     $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
@@ -17,6 +17,7 @@ $password = filter_input(INPUT_POST, "password", FILTER_SANITIZE_FULL_SPECIAL_CH
 $confPassword = filter_input(INPUT_POST, "confPassword", FILTER_SANITIZE_FULL_SPECIAL_CHARS);
 $erreur = false;
 $erreurMDP = false;
+$erreurEmail = false;
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $pseudo = trim($pseudo);
@@ -30,8 +31,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     else if ($password != $confPassword) {
         $erreurMDP = true;
     } 
+    else if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+        $erreurEmail = true;
+    } 
     else {
-        $stmt = $conn->prepare("SELECT * FROM users WHERE email = :email");
+        $stmt = $conn->prepare("SELECT * FROM User WHERE email = :email"); 
         $stmt->bindParam(':email', $email);
         $stmt->execute();
         
@@ -40,12 +44,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         } else {
             $hashedPassword = password_hash($password, PASSWORD_BCRYPT);
 
-            $stmt = $conn->prepare("INSERT INTO users (pseudo, email, password) VALUES (:pseudo, :email, :password)");
+            $stmt = $conn->prepare("INSERT INTO User (username, email, password) VALUES (:pseudo, :email, :password)");
             $stmt->bindParam(':pseudo', $pseudo);
             $stmt->bindParam(':email', $email);
             $stmt->bindParam(':password', $hashedPassword);
             $stmt->execute();
-
             header('Location: ./confiramtionInscription.php');
             exit();
         }
@@ -69,9 +72,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             if ($erreur) {
                 echo "<p class='error'>Tous les champs doivent être remplis.</p>";
             }
+            if ($erreurEmail) {
+                echo "<p class='error'>L'email n'est pas valide.</p>";
+            }
             ?>
-            <input type="text" name="pseudo" id="pseudo" placeholder="Pseudo" value="<?php echo $pseudo; ?>" required>
-            <input type="email" name="email" id="email" placeholder="Email" value="<?php echo $email; ?>" required>
+            <input type="text" name="pseudo" id="pseudo" placeholder="Pseudo" value="<?php echo htmlspecialchars($pseudo); ?>" required>
+            <input type="email" name="email" id="email" placeholder="Email" value="<?php echo htmlspecialchars($email); ?>" required>
             
             <?php
             if ($erreurMDP) {
