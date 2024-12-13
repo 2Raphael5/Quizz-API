@@ -91,7 +91,7 @@ Evan :
 
 
 Julien :
-
+J'ai ajouter des questions, proposition, informations et wiki à la base de données
 
 
 Raphaël :
