@@ -1,14 +1,3 @@
-<?php
-$pseudo = filter_input(INPUT_POST,"pseudo",FILTER_SANITIZE_FULL_SPECIAL_CHARS);
-$email = filter_input(INPUT_POST,"email",FILTER_SANITIZE_EMAIL);
-$password = filter_input(INPUT_POST,"password",FILTER_SANITIZE_FULL_SPECIAL_CHARS);
-$confPassword = filter_input(INPUT_POST,"confPassword",FILTER_SANITIZE_FULL_SPECIAL_CHARS);
-
-
-
-//Mettre l'integration des donnees dans la base de donnes 
-
-?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -21,8 +10,7 @@ $confPassword = filter_input(INPUT_POST,"confPassword",FILTER_SANITIZE_FULL_SPEC
     <div class="container">
         <h1>Confirmer</h1>
         <p>Merci de votre Inscription</p><br>
-        <form action="../index.html">
-            <input type="hidden" value="connecterYes" name="connecter">
+        <form action="./profile.php">
             <input type="submit" name="submit" id="submit" value="Jouer">
         </form>
     </div>
