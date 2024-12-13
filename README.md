@@ -82,3 +82,17 @@ Julien :
 
 Raphaël :
 - J'ai commencé à relier la partie php avec la partie SQL
+- 
+
+##### 13.12.2024
+
+Evan :
+
+
+
+Julien :
+
+
+
+Raphaël :
+- J'ai ajouter la fonctionnalité de créer un User en utilisant le model du controler
