@@ -15,6 +15,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $conn = new PDO("mysql:host=localhost;dbname=Quiz", "root", "Super");
         $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
+
         $sql = "SELECT * FROM User WHERE email = :email";
         $stmt = $conn->prepare($sql);
         $stmt->bindParam(':email', $email);
@@ -22,7 +23,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         if ($stmt->rowCount() > 0) {
             $user = $stmt->fetch(PDO::FETCH_ASSOC);
+
             if (password_verify($password, $user['password'])) {
+
                 $_SESSION['id'] = $user['id'];
                 $_SESSION['email'] = $user['email'];
                 $connecterYes = true;
