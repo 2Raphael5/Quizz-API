@@ -12,7 +12,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $password = filter_input(INPUT_POST, "password", FILTER_SANITIZE_FULL_SPECIAL_CHARS);
 
     try {
-        $conn = new PDO("mysql:host=localhost;dbname=quiz", "root", "");
+        $conn = new PDO("mysql:host=localhost;dbname=Quiz", "root", "Super");
         $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
         $sql = "SELECT * FROM User WHERE email = :email";

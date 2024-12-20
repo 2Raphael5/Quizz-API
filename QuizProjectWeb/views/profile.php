@@ -2,8 +2,8 @@
 session_start();
 $servername = "localhost";
 $username = "root";
-$password = "";
-$dbname = "quiz";
+$password = "Super";
+$dbname = "Quiz";
 
 if (!isset($_SESSION['id'])) {
     header("Location: login.php");

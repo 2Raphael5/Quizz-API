@@ -1,8 +1,8 @@
 <?php
 const DBHOST = "localhost";
-const DBNAME = "quiz";
+const DBNAME = "Quiz";
 const DBUSER = "root";
-const DBPASS = "";
+const DBPASS = "Super";
 function db()
 {
     static $db = null;
@@ -17,9 +17,9 @@ function db()
     return $db;
 }   
 
-function InsertUser($pseudo,$email,$hashedPassword)
+function InsertUser($pseudo, $email, $hashedPassword)
 {
-    $stmt = db()->prepare("INSERT INTO User (username, email, password) VALUES (:pseudo, :email, :password)");
+    $stmt = db()->prepare("INSERT INTO User (username, email, password, createdAt) VALUES (:pseudo, :email, :password, NOW())");
     $stmt->bindParam(':pseudo', $pseudo);
     $stmt->bindParam(':email', $email);
     $stmt->bindParam(':password', $hashedPassword);

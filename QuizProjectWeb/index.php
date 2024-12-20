@@ -5,7 +5,7 @@ $connecterYes = isset($_SESSION['id']) ? true : false;
 $theme = isset($_GET['theme']) ? $_GET['theme'] : null;
 
 try {
-    $pdo = new PDO('mysql:host=localhost;dbname=quiz;charset=utf8', 'root', '');
+    $pdo = new PDO('mysql:host=localhost;dbname=Quiz;charset=utf8', 'root', 'Super');
     $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 } catch (PDOException $e) {
     die('Erreur de connexion : ' . $e->getMessage());
