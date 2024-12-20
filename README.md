@@ -108,8 +108,8 @@ Evan :
 
 
 Julien :
-J'ai ajouter des questions, proposition, informations et wiki à la base de données
+J'ai ajouter des questions, proposition, informations et wiki à la base de données et une partie de la présentation
 
 
 Raphaël :
-- J'ai ajouter la fonctionnalité de créer un User en utilisant le model du controler
+- J'ai ajouter la fonctionnalité de jouer au quiz
