@@ -88,6 +88,23 @@ Raphaël :
 
 Evan :
 
+--J'ai continuer a modeler le site et faire du css
+
+
+
+Julien :
+J'ai ajouter des questions, proposition, informations et wiki à la base de données
+
+
+Raphaël :
+- J'ai ajouter la fonctionnalité de créer un User en utilisant le model du controler
+
+  ##### 20.12.2024
+
+Evan :
+
+--J'ai fini le profil, les questions et propositions et le css
+
 
 
 Julien :
