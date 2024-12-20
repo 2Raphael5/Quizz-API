@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : localhost:3306
--- Généré le : ven. 20 déc. 2024 à 13:08
+-- Généré le : ven. 20 déc. 2024 à 14:05
 -- Version du serveur : 10.6.18-MariaDB-0ubuntu0.22.04.1
 -- Version de PHP : 8.1.2-1ubuntu2.20
 
@@ -101,7 +101,17 @@ INSERT INTO `Information` (`id`, `anecdote`, `wiki`, `question_id`, `langue_id`)
 (57, 'Dieses System, das im realen Einzelbenutzer- und Einzelbenutzermodus ausgeführt wird, war standardmässig mit einer Befehlszeilenschnittstelle ausgestattet.', 'https://de.wikipedia.org/wiki/MS-DOS', 57, 3),
 (58, 'Este sistema que se ejecuta en el mundo real, en modo de usuario único y en modo de usuario único, era requerido por una interfaz de línea de comandos.', 'https://es.wikipedia.org/wiki/MS-DOS', 58, 4),
 (59, 'Questo sistema in esecuzione in modalità reale, utente singolo e utente singolo, era richiesto da un interfaccia della riga di comando.', 'https://it.wikipedia.org/wiki/MS-DOS', 59, 5),
-(60, 'Dit systeem dat in real-world, single-user en single-user mode draait, was vereist door een command-line interface.', 'https://nl.wikipedia.org/wiki/MS-DOS', 60, 6);
+(60, 'Dit systeem dat in real-world, single-user en single-user mode draait, was vereist door een command-line interface.', 'https://nl.wikipedia.org/wiki/MS-DOS', 60, 6),
+(61, 'En 2016, le groupe BMW a vendu 2 117 965 véhicules automobiles (BMW, Mini, et Rolls-Royce) ainsi que 123 495 deux-roues.', 'https://fr.wikipedia.org/wiki/Bayerische_Motoren_Werke', 61, 1),
+(62, 'L\'emblème de la marque BMW reprend le cercle noir du logo de Rapp, avec au centre les couleurs symbolisant la Bavière.', 'https://fr.wikipedia.org/wiki/Bayerische_Motoren_Werke', 62, 1),
+(63, 'La Lamborghini Diablo succède à la légendaire Lamborghini Countach après seize ans de carrière et 2 200 exemplaires produits.', 'https://fr.wikipedia.org/wiki/Lamborghini_Diablo', 63, 1),
+(64, 'En mai 2007, la Qashqai de chez Nissan a décroché la plus haute note possible aux crash tests Euro NCAP, à savoir cinq étoiles.', 'https://fr.wikipedia.org/wiki/Nissan_Qashqai', 64, 1),
+(65, 'Spirit of Ecstasy, le fameux bouchon de radiateur de la marque Rolls-Royce, a été créé en 1911 par l\'artiste anglais Charles Sykes.', 'https://fr.wikipedia.org/wiki/Rolls-Royce_Limited', 65, 1),
+(66, 'Ce concept de petite voiture sportive à hayon et traction avec un moteur à injection contrastait avec les moteurs à carburateur.', 'https://fr.wikipedia.org/wiki/Volkswagen_Golf', 66, 1),
+(67, 'Produite en 1938, la Coccinelle fut conçue par l\'ingénieur autrichien Ferdinand Porsche à la demande du chancelier Adolf Hitler.', 'https://fr.wikipedia.org/wiki/Volkswagen_Coccinelle', 67, 1),
+(68, 'Outre la recharge sur bornes ordinaires, la Model S bénéficie de bornes gratuites ultra-rapides appelées Superchargeurs.', 'https://fr.wikipedia.org/wiki/Tesla_Model_S', 68, 1),
+(69, 'Le Cayenne a été fabriqué en collaboration avec Volkswagen avec qui il partage la même plate-forme de son 4x4 Touareg.', 'https://fr.wikipedia.org/wiki/Porsche_Cayenne', 69, 1),
+(70, 'Le terme Civic exprime l\'ambition de la marque Honda de réduire ses émissions polluantes et de proposer une voiture propre.', 'https://fr.wikipedia.org/wiki/Honda_Civic', 70, 1);
 
 -- --------------------------------------------------------
 
@@ -383,7 +393,47 @@ INSERT INTO `Proposition` (`id`, `name`, `question_id`, `langue_id`) VALUES
 (237, 'Bediening', 60, 6),
 (238, 'Operator', 60, 6),
 (239, 'Opera', 60, 6),
-(240, 'Opaal', 60, 6);
+(240, 'Opaal', 60, 6),
+(241, 'BMW', 61, 1),
+(242, 'Lotus', 61, 1),
+(243, 'Mercedes', 61, 1),
+(244, 'Lexus', 61, 1),
+(245, 'Bleu et blanc', 62, 1),
+(246, 'Noir et rouge', 62, 1),
+(247, 'Vert et jaune', 62, 1),
+(248, 'Rouge et bleu', 62, 1),
+(249, 'Lamborghini', 63, 1),
+(250, 'Porsche', 63, 1),
+(251, 'Ferrari', 63, 1),
+(252, 'Maserati', 63, 1),
+(253, 'Qashqai', 64, 1),
+(254, 'Quattro', 64, 1),
+(255, 'Quoris', 64, 1),
+(256, 'Quantum', 64, 1),
+(257, 'Rolls-Royce', 65, 1),
+(258, 'Jaguar', 65, 1),
+(259, 'Porsche', 65, 1),
+(260, 'Mercedes', 65, 1),
+(261, 'Golf', 66, 1),
+(262, 'Passat', 66, 1),
+(263, 'Scarabée', 66, 1),
+(264, 'Jetta', 66, 1),
+(265, 'Volkswagen', 67, 1),
+(266, 'Nissan', 67, 1),
+(267, 'Volvo', 67, 1),
+(268, 'Suzuki', 67, 1),
+(269, 'Sept', 68, 1),
+(270, 'Cinq', 68, 1),
+(271, 'Trois', 68, 1),
+(272, 'Un seul', 68, 1),
+(273, 'Porsche', 69, 1),
+(274, 'Lamborghini', 69, 1),
+(275, 'Maserati', 69, 1),
+(276, 'Ferrari', 69, 1),
+(277, 'Honda', 70, 1),
+(278, 'Ford', 70, 1),
+(279, 'Jaguar', 70, 1),
+(280, 'Tesla', 70, 1);
 
 -- --------------------------------------------------------
 
@@ -463,7 +513,17 @@ INSERT INTO `Question` (`id`, `name`, `reponse_id`, `quiz_id`, `langue_id`) VALU
 (57, 'Welches Wort steckt hinter dem Buchstaben O des MS-DOS-Betriebssystems ?', 225, 57, 3),
 (58, '¿Qué palabra está detrás de la letra O del sistema operativo MS-DOS ?', 229, 58, 4),
 (59, 'Qual è la parola dietro la lettera O del sistema operativo MS-DOS ?', 233, 59, 5),
-(60, 'Welk woord staat achter de letter O van het MS-DOS-besturingssysteem ?', 237, 60, 6);
+(60, 'Welk woord staat achter de letter O van het MS-DOS-besturingssysteem ?', 237, 60, 6),
+(61, 'Quel constructeur automobile a pour slogan le plaisir de conduire ?', 241, 7, 1),
+(62, 'Quelles couleurs sont présentes sur le logo circulaire de la marque BMW ?', 245, 7, 1),
+(63, 'Quel constructeur automobile a produit les modèles Diablo et Countach ?', 249, 7, 1),
+(64, 'Quel modèle de SUV fut commercialisé en 2007 par la marque Nissan ?', 253, 7, 1),
+(65, 'Quel constructeur haut de gamme a pour ornement l\'Esprit d\'extase ?', 257, 7, 1),
+(66, 'Lequel de ces modèles Volkswagen reste aujourd\'hui le plus vendu au monde ?', 261, 7, 1),
+(67, 'Quel constructeur a produit la très populaire Coccinelle ?', 265, 7, 1),
+(68, 'Combien de passagers peut accueillir une Tesla Modèle S de 2014 ?', 269, 7, 1),
+(69, 'Quel constructeur automobile a créé le modèle Cayenne ?', 273, 7, 1),
+(70, 'Quel constructeur a produit une voiture hybride du nom de Civic ?', 277, 7, 1);
 
 -- --------------------------------------------------------
 
@@ -543,7 +603,17 @@ INSERT INTO `Quiz` (`id`, `title`, `level`, `language_id`, `theme_id`) VALUES
 (57, 'O in MS-DOS', 1, 3, 3),
 (58, 'O en MS-DOS', 1, 4, 4),
 (59, 'O in MS-DOS', 1, 5, 5),
-(60, 'O in MS-DOS', 1, 6, 6);
+(60, 'O in MS-DOS', 1, 6, 6),
+(61, 'Le slogan de BMW', 2, 1, 7),
+(62, 'Les couleurs du logo BMW', 2, 1, 7),
+(63, 'Les modèles emblématiques de Lamborghini', 2, 1, 7),
+(64, 'Le SUV phare de Nissan en 2007', 2, 1, 7),
+(65, 'L\'ornement distinctif de Rolls-Royce', 2, 1, 7),
+(66, 'Le modèle Volkswagen le plus populaire', 2, 1, 7),
+(67, 'L\'origine de la Coccinelle', 2, 1, 7),
+(68, 'La capacité de la Tesla Model S', 2, 1, 7),
+(69, 'Le SUV de luxe de Porsche', 2, 1, 7),
+(70, 'La Civic hybride de Honda', 2, 1, 7);
 
 -- --------------------------------------------------------
 
@@ -588,7 +658,8 @@ INSERT INTO `Theme` (`id`, `name`, `langue_id`) VALUES
 (3, 'Microsoft', 3),
 (4, 'Microsoft', 4),
 (5, 'Microsoft', 5),
-(6, 'Microsoft', 6);
+(6, 'Microsoft', 6),
+(7, 'Constructeurs auto', 1);
 
 -- --------------------------------------------------------
 
@@ -682,7 +753,7 @@ ALTER TABLE `User`
 -- AUTO_INCREMENT pour la table `Information`
 --
 ALTER TABLE `Information`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=61;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=71;
 
 --
 -- AUTO_INCREMENT pour la table `Language`
@@ -694,13 +765,13 @@ ALTER TABLE `Language`
 -- AUTO_INCREMENT pour la table `Question`
 --
 ALTER TABLE `Question`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=61;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=71;
 
 --
 -- AUTO_INCREMENT pour la table `Quiz`
 --
 ALTER TABLE `Quiz`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=61;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=71;
 
 --
 -- AUTO_INCREMENT pour la table `Score`
@@ -712,7 +783,7 @@ ALTER TABLE `Score`
 -- AUTO_INCREMENT pour la table `Theme`
 --
 ALTER TABLE `Theme`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT pour la table `User`
