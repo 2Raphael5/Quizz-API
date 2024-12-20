@@ -1,28 +1,47 @@
 <?php
 session_start();
-$servername = "localhost";
-$username = "root";
-$password = "Super";
-$dbname = "Quiz";
+require_once("./controler/data.php");
+
 
 if (!isset($_SESSION['id'])) {
     header("Location: login.php");
     exit();
 }
 
-try {
-    $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
-    $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-} catch(PDOException $e) {
-    echo "Connection failed: " . $e->getMessage();
-}
 
-$stmt = $conn->prepare("SELECT score FROM Score INNER JOIN User ON Score.user_id = User.id WHERE User.id = :id");
+$stmt = db()->prepare("SELECT score FROM Score INNER JOIN User ON Score.user_id = User.id WHERE User.id = :id");
 $stmt->bindParam(':id', $_SESSION['id']); 
 $stmt->execute();
-
 $score = $stmt->fetch(PDO::FETCH_ASSOC)['score'] ?? 'Not available'; 
+
+
+$stmt = db()->prepare("SELECT username FROM User WHERE email = :email");
+$stmt->bindParam(':email', $_SESSION['email']); 
+$stmt->execute();
+$username = $stmt->fetch(PDO::FETCH_ASSOC)['username'] ?? 'Not available'; 
+
+
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+
+    if (!empty($_POST['newEmail'])) {
+        $newEmail = filter_input(INPUT_POST, "newEmail", FILTER_SANITIZE_EMAIL);
+        $updateEmail = db()->prepare("UPDATE User SET email = :email WHERE id = :id");
+        $updateEmail->bindParam(':email', $newEmail);
+        $updateEmail->bindParam(':id', $_SESSION['id']);
+        $updateEmail->execute();
+        $_SESSION['email'] = $newEmail;
+    }
+
+    if (!empty($_POST['newMdp'])) {
+        $newMdp = password_hash($_POST['newMdp'], PASSWORD_DEFAULT);
+        $updateMdp = db()->prepare("UPDATE User SET password = :password WHERE id = :id");
+        $updateMdp->bindParam(':password', $newMdp);
+        $updateMdp->bindParam(':id', $_SESSION['id']);
+        $updateMdp->execute();
+    }
+}
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -36,26 +55,18 @@ $score = $stmt->fetch(PDO::FETCH_ASSOC)['score'] ?? 'Not available';
         <div class="card">
             <div class="card-front">
                 <img id="imgProfileUser" src="./img/bassem.jpg" alt="Profile Picture">
-                <h1><?= "@" . $_SESSION['pseudo'] ?></h1>
+                <h1><?= isset($username) ? "@" . $username : "Username not available" ?></h1>
                 <p><?= "Email: " . $_SESSION['email'] ?></p>
                 <p>Langue: Français</p>
                 <p><?= "Score : " . $score ?></p>
 
                 <form action="profile.php" method="post">
                     <label for="newEmail">Changer l'email</label>
-                    <input type="text" id="newEmail" name="newEmail" placeholder="Nouvel Email">
+                    <input type="email" id="newEmail" name="newEmail" placeholder="Nouvel Email">
 
                     <label for="newMdp">Changer Mot de Passe</label>
                     <input type="password" id="newMdp" name="newMdp" placeholder="Nouveau Mot de Passe">
 
-                    <select name="selectLangue" id="selectLangue">
-                        <option value="FR">Français</option>
-                        <option value="EN">English</option>
-                        <option value="DE">Deutsch</option>
-                        <option value="ES">Espagnol</option>
-                        <option value="IT">Italien</option>
-                        <option value="NL">Néerlandais</option>
-                    </select>
                     <input type="submit" value="Confirmer les changements">
                 </form>
             </div>
