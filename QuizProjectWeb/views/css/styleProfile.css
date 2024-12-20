@@ -7,7 +7,7 @@ body {
 .card-container {
     perspective: 1000px;
     width: 570px;
-    height: 670px;
+    height: 710px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -37,6 +37,7 @@ body {
     padding: 20px;
     box-sizing: border-box;
     overflow-y: auto;
+    overflow: hidden;
 }
 
 .card-back {
@@ -82,7 +83,18 @@ label {
     display: block;
 }
 
-input[type="text"],
+
+#newEmail
+{
+    width: 100%;
+    padding: 10px; 
+    margin: 8px 0 20px;
+    font-size: 1.1em;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    box-sizing: border-box;
+    transition: border 0.3s ease;
+}
 input[type="password"] {
     width: 100%;
     padding: 10px; 
@@ -94,7 +106,7 @@ input[type="password"] {
     transition: border 0.3s ease;
 }
 
-input[type="text"]:focus,
+
 input[type="password"]:focus {
     border: 1px solid #296cff;
     outline: none;
@@ -115,7 +127,7 @@ input[type="submit"]:hover {
     background-color: #1a56d6;
 }
 
-input[type="text"], input[type="password"], input[type="submit"], label {
+.newEmail, input[type="password"], input[type="submit"], label {
     pointer-events: auto; 
 }
 
@@ -123,5 +135,16 @@ input[type="text"], input[type="password"], input[type="submit"], label {
 
 #backImage{
     width: 570px;
-    height: 690px;
+    height: 710px;
+}
+
+button{
+    background-color: #296cff;
+    color: white;
+    padding: 5px 22px;
+    font-size: 1.2em;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
 }
