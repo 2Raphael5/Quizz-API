@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : localhost:3306
--- Généré le : ven. 13 déc. 2024 à 15:44
+-- Généré le : ven. 20 déc. 2024 à 13:08
 -- Version du serveur : 10.6.18-MariaDB-0ubuntu0.22.04.1
--- Version de PHP : 8.1.2-1ubuntu2.19
+-- Version de PHP : 8.1.2-1ubuntu2.20
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -47,7 +47,61 @@ INSERT INTO `Information` (`id`, `anecdote`, `wiki`, `question_id`, `langue_id`)
 (3, 'In dieser Stadt im US-Bundesstaat Washington befinden sich der Hauptsitz des Microsoft-Softwareherstellers und die amerikanische Niederlassung von Nintendo.', 'https://de.wikipedia.org/wiki/Redmond_(Washington)', 3, 3),
 (4, 'Esta ciudad del estado de Washington alberga la sede del editor de software de Microsoft y la sucursal estadounidense de Nintendo.', 'https://es.wikipedia.org/wiki/Redmond_(Washington)', 4, 4),
 (5, 'Questa città dello stato di Washington ospita la sede del produttore di software Microsoft e la filiale americana di Nintendo.', 'https://it.wikipedia.org/wiki/Redmond_(Washington)', 5, 5),
-(6, 'Deze staat in de staat Washington is de thuisbasis van het hoofdkantoor van de Microsoft software-uitgever en de Amerikaanse tak van Nintendo.', 'https://nl.wikipedia.org/wiki/Redmond_(Washington)', 6, 6);
+(6, 'Deze staat in de staat Washington is de thuisbasis van het hoofdkantoor van de Microsoft software-uitgever en de Amerikaanse tak van Nintendo.', 'https://nl.wikipedia.org/wiki/Redmond_(Washington)', 6, 6),
+(7, 'Une Xbox ne pouvait à l origine exécuter que des programmes Xbox provenant d un média au format propriétaire Microsoft sur DVD.', 'https://fr.wikipedia.org/wiki/Xbox', 7, 1),
+(8, 'An Xbox could originally only run Xbox programs from a proprietary Microsoft DVD format media.', 'https://en.wikipedia.org/wiki/Xbox_(console)', 8, 2),
+(9, 'Auf einer Xbox konnten ursprünglich nur Xbox-Programme von einem proprietären Microsoft-DVD-Format ausgeführt werden.', 'https://de.wikipedia.org/wiki/Xbox', 9, 3),
+(10, 'Originalmente, una Xbox solo podía ejecutar programas de Xbox desde un medio de formato de DVD propietario.', 'https://es.wikipedia.org/wiki/Xbox', 10, 4),
+(11, 'In origine, una Xbox poteva eseguire solo i programmi Xbox da un supporto in formato Microsoft DVD proprietario.', 'https://it.wikipedia.org/wiki/Xbox', 11, 5),
+(12, 'Een Xbox kan oorspronkelijk alleen Xbox-programma s uitvoeren vanaf een eigen Microsoft DVD-formaat media.', 'https://nl.wikipedia.org/wiki/Xbox', 12, 6),
+(13, 'Paul Allen est aussi patron actionnaire d un empire financier de multiples sociétés dans les domaines des hautes technologies.', 'https://fr.wikipedia.org/wiki/Paul_Allen', 13, 1),
+(14, 'Paul Allen is also a shareholder of a financial empire of multiple companies in the fields of high technologies.', 'https://en.wikipedia.org/wiki/Paul_Allen', 14, 2),
+(15, 'Paul Allen ist auch ein Anteilseigner eines Finanzimperiums mehrerer Unternehmen auf dem Gebiet der Hochtechnologie.', 'https://de.wikipedia.org/wiki/Paul_Allen', 15, 3),
+(16, 'Paul Allen también es accionista de un imperio financiero de múltiples compañías en los campos de las altas tecnologías.', 'https://es.wikipedia.org/wiki/Paul_Allen', 16, 4),
+(17, 'Paul Allen è anche azionista di un impero finanziario di più società nei settori delle alte tecnologie.', 'https://it.wikipedia.org/wiki/Paul_Allen', 17, 5),
+(18, 'Paul Allen is ook aandeelhouder van een financieel imperium van meerdere bedrijven op het gebied van geavanceerde technologieën.', 'https://nl.wikipedia.org/wiki/Paul_Allen', 18, 6),
+(19, 'Bill Gates est fasciné par le roman « Vol de nuit » d Antoine de Saint-Exupéry qui raconte la sensation de voler dans un petit avion.', 'https://fr.wikipedia.org/wiki/Flight_Simulator', 19, 1),
+(20, 'Bill Gates is fascinated by Antoine de Saint Exupéry s novel « Night Flight », which tells the story of flying in a small plane.', 'https://en.wikipedia.org/wiki/Microsoft_Flight_Simulator', 20, 2),
+(21, 'Bill Gates ist fasziniert von Antoine de Saint Exupérys Roman « Nachtflug », der die Geschichte des Fliegens in einem kleinen Flugzeug erzählt.', 'https://de.wikipedia.org/wiki/Microsoft_Flight_Simulator', 21, 3),
+(22, 'Bill Gates está fascinado por la novela de Antoine de Saint Exupéry « Night Flight », que narra la historia de volar en un avión pequeño.', 'https://es.wikipedia.org/wiki/Microsoft_Flight_Simulator', 22, 4),
+(23, 'Bill Gates è affascinato dal romanzo di Antoine de Saint Exupéry « Night Flight », che racconta la storia di volare su un piccolo aereo.', 'https://it.wikipedia.org/wiki/Microsoft_Flight_Simulator', 23, 5),
+(24, 'Bill Gates is gefascineerd door de roman « Night Flight » van Antoine de Saint Exupéry, die het verhaal vertelt van vliegen in een klein vliegtuig.', 'https://nl.wikipedia.org/wiki/Microsoft_Flight_Simulator', 24, 6),
+(25, 'Cette série de smartphones et d une tablette tactile est le résultat d une coopération avec Nokia, constructeur des téléphones.', 'https://fr.wikipedia.org/wiki/Microsoft_Lumia', 25, 1),
+(26, 'This series of smartphones and a touch pad is the result of cooperation with Nokia, the manufacturer of telephones.', 'https://en.wikipedia.org/wiki/Microsoft_Lumia', 26, 2),
+(27, 'Diese Serie von Smartphones und einem Touchpad ist das Ergebnis der Zusammenarbeit mit Nokia, dem Hersteller von Telefonen.', 'https://de.wikipedia.org/wiki/Microsoft_Lumia', 27, 3),
+(28, 'Esta serie de teléfonos inteligentes y un panel táctil es el resultado de la cooperación con Nokia, el fabricante de teléfonos.', 'https://es.wikipedia.org/wiki/Microsoft_Lumia', 28, 4),
+(29, 'Questa serie di smartphone e un touch pad è il risultato della collaborazione con Nokia, il produttore di telefoni.', 'https://it.wikipedia.org/wiki/Microsoft_Lumia', 29, 5),
+(30, 'Deze serie smartphones en een touchpad is het resultaat van samenwerking met Nokia, fabrikant van telefoons.', 'https://nl.wikipedia.org/wiki/Microsoft_Lumia', 30, 6),
+(31, 'Entièrement basé sur Windows 98, lui-même basé sur Windows 95, Windows ME était le pendant familial et multimédia de Windows.', 'https://fr.wikipedia.org/wiki/Windows_Millennium_Edition', 31, 1),
+(32, 'Fully based on Windows 98, itself based on Windows 95, Windows ME was the Windows family and multimedia pendant.', 'https://en.wikipedia.org/wiki/Windows_Me', 32, 2),
+(33, 'Windows ME, das vollständig auf Windows 98 und Windows 95 basiert, war die Windows-Produktfamilie und das Multimedia-Pendant.', 'https://de.wikipedia.org/wiki/Microsoft_Windows_Millennium_Edition', 33, 3),
+(34, 'Totalmente basado en Windows 98, basado en Windows 95, Windows ME era la familia de Windows y el colgante multimedia.', 'https://es.wikipedia.org/wiki/Windows_ME', 34, 4),
+(35, 'Completamente basato su Windows 98, a sua volta basato su Windows 95, Windows ME era la famiglia Windows e il pendente multimediale.', 'https://it.wikipedia.org/wiki/Windows_Me', 35, 5),
+(36, 'Volledig gebaseerd op Windows 98, zelf gebaseerd op Windows 95, was Windows ME de Windows-familie en multimedia-pendant.', 'https://nl.wikipedia.org/wiki/Windows_ME', 36, 6),
+(37, 'Le service peut s utiliser de deux manières : à travers un navigateur web ou le logiciel OneDrive qui permet une synchronisation.', 'https://fr.wikipedia.org/wiki/Microsoft_OneDrive', 37, 1),
+(38, 'The service can be used in two ways: through a web browser or through the OneDrive software that allows synchronization.', 'https://en.wikipedia.org/wiki/OneDrive', 38, 2),
+(39, 'Der Dienst kann auf zwei Arten verwendet werden: über einen Webbrowser oder über die OneDrive-Software, die die Synchronisierung ermöglicht.', 'https://de.wikipedia.org/wiki/Microsoft_OneDrive', 39, 3),
+(40, 'El servicio se puede utilizar de dos maneras: a través de un navegador web o del software OneDrive que permite la sincronización.', 'https://es.wikipedia.org/wiki/OneDrive', 40, 4),
+(41, 'Il servizio può essere utilizzato in due modi: tramite un browser Web o tramite il software OneDrive che consente la sincronizzazione.', 'https://it.wikipedia.org/wiki/Microsoft_OneDrive', 41, 5),
+(42, 'De service kan op twee manieren worden gebruikt: via een webbrowser of via de OneDrive-software die synchronisatie mogelijk maakt.', 'https://nl.wikipedia.org/wiki/Microsoft_OneDrive', 42, 6),
+(43, 'La première génération de tablette a été introduite en 2012 où deux versions de Surface sont présentées : Surface RT et Surface Pro.', 'https://fr.wikipedia.org/wiki/Microsoft_Surface', 43, 1),
+(44, 'The first tablet generation was introduced in 2012 where two versions of Surface are presented: Surface RT and Surface Pro.', 'https://en.wikipedia.org/wiki/Microsoft_Surface', 44, 2),
+(45, 'Die erste Tablet-Generation wurde 2012 vorgestellt, wo zwei Versionen von Surface vorgestellt werden: Surface RT und Surface Pro.', 'https://de.wikipedia.org/wiki/Microsoft_Surface', 45, 3),
+(46, 'La primera generación de tabletas se introdujo en 2012, donde se presentan dos versiones de Surface: Surface RT y Surface Pro.', 'https://es.wikipedia.org/wiki/Microsoft_Surface', 46, 4),
+(47, 'La prima generazione di tablet è stata introdotta nel 2012 in cui sono presentate due versioni di Surface: Surface RT e Surface Pro.', 'https://it.wikipedia.org/wiki/Microsoft_Surface', 47, 5),
+(48, 'De eerste tabletgeneratie werd geïntroduceerd in 2012, waar twee versies van Surface worden gepresenteerd: Surface RT en Surface Pro.', 'https://nl.wikipedia.org/wiki/Microsoft_Surface_(productreeks)', 48, 6),
+(49, 'Son activité principale consiste à développer et vendre des systèmes d exploitation, des logiciels et des produits matériels dérivés.', 'https://fr.wikipedia.org/wiki/Microsoft', 49, 1),
+(50, 'Its core business is the development and sale of operating systems, software and hardware products.', 'https://en.wikipedia.org/wiki/Microsoft', 50, 2),
+(51, 'Kerngeschäft ist die Entwicklung und der Vertrieb von Betriebssystemen, Software- und Hardwareprodukten.', 'https://de.wikipedia.org/wiki/Microsoft', 51, 3),
+(52, 'Su negocio principal es el desarrollo y venta de productos de sistemas operativos, software y hardware.', 'https://es.wikipedia.org/wiki/Microsoft', 52, 4),
+(53, 'Il suo core business è lo sviluppo e la vendita di sistemi operativi, software e prodotti hardware.', 'https://it.wikipedia.org/wiki/Microsoft', 53, 5),
+(54, 'Haar kernactiviteit is de ontwikkeling en verkoop van besturingssystemen, software en hardwareproducten.', 'https://nl.wikipedia.org/wiki/Microsoft', 54, 6),
+(55, 'Ce système fonctionnant en mode réel, mono-tâche et mono-utilisateur, était équipé d une interface en ligne de commande.', 'https://fr.wikipedia.org/wiki/MS-DOS', 55, 1),
+(56, 'This system running in real-world, single-user and single-user mode, was required by a command-line interface.', 'https://en.wikipedia.org/wiki/MS-DOS', 56, 2),
+(57, 'Dieses System, das im realen Einzelbenutzer- und Einzelbenutzermodus ausgeführt wird, war standardmässig mit einer Befehlszeilenschnittstelle ausgestattet.', 'https://de.wikipedia.org/wiki/MS-DOS', 57, 3),
+(58, 'Este sistema que se ejecuta en el mundo real, en modo de usuario único y en modo de usuario único, era requerido por una interfaz de línea de comandos.', 'https://es.wikipedia.org/wiki/MS-DOS', 58, 4),
+(59, 'Questo sistema in esecuzione in modalità reale, utente singolo e utente singolo, era richiesto da un interfaccia della riga di comando.', 'https://it.wikipedia.org/wiki/MS-DOS', 59, 5),
+(60, 'Dit systeem dat in real-world, single-user en single-user mode draait, was vereist door een command-line interface.', 'https://nl.wikipedia.org/wiki/MS-DOS', 60, 6);
 
 -- --------------------------------------------------------
 
@@ -628,7 +682,7 @@ ALTER TABLE `User`
 -- AUTO_INCREMENT pour la table `Information`
 --
 ALTER TABLE `Information`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=61;
 
 --
 -- AUTO_INCREMENT pour la table `Language`
