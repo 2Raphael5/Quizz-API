@@ -69,6 +69,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
                     <input type="submit" value="Confirmer les changements">
                 </form>
+    <br>
+                <a href="../index.php"><button>Retour</button></a>
             </div>
             
             <div class="card-back">
