@@ -26,7 +26,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     } 
     else {
         $stmt = SelectUser($email);
-        if ($stmt->rowCount() > 0) {
+        
+        if ($stmt && $stmt->rowCount() > 0) {
             echo "<p class='error'>Cet email est déjà utilisé. Veuillez en choisir un autre.</p>";
         } else {
             $hashedPassword = password_hash($password, PASSWORD_BCRYPT);
@@ -38,6 +39,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 }
 ?>
+
 
 
 <!DOCTYPE html>
@@ -60,8 +62,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 echo "<p class='error'>L'email n'est pas valide.</p>";
             }
             ?>
-            <input type="text" name="pseudo" id="pseudo" placeholder="Pseudo" value="<?php echo htmlspecialchars($pseudo); ?>" required>
-            <input type="email" name="email" id="email" placeholder="Email" value="<?php echo htmlspecialchars($email); ?>" required>
+            <input type="text" name="pseudo" id="pseudo" placeholder="Pseudo" value="<?php echo $pseudo; ?>" required>
+            <input type="email" name="email" id="email" placeholder="Email" value="<?php echo $email; ?>" required>
             
             <?php
             if ($erreurMDP) {

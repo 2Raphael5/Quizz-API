@@ -147,6 +147,8 @@ button{
     width: 30vw;
     background-color: white;
     transition: all 0.3s ease-in-out;
+        transition: background-color 0.3s, color 0.3s;
+    
 }
 button:hover{
     background-color: #007BFF;

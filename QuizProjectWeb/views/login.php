@@ -1,12 +1,10 @@
 <?php
 session_start();
 
-// Initialiser les variables d'erreur
 $erreurMDP = false; 
 $erreurEmail = false; 
 $connecterYes = false;
 
-// Initialiser la variable $email
 $email = '';
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -14,8 +12,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $password = filter_input(INPUT_POST, "password", FILTER_SANITIZE_FULL_SPECIAL_CHARS);
 
     try {
-        // Connexion à la base de données
-        $conn = new PDO("mysql:host=localhost;dbname=Quiz", "root", "Super");
+        $conn = new PDO("mysql:host=localhost;dbname=quiz", "root", "");
         $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
         $sql = "SELECT * FROM User WHERE email = :email";
@@ -23,10 +20,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $stmt->bindParam(':email', $email);
         $stmt->execute();
 
-        // Vérifier si un utilisateur correspond à l'email
         if ($stmt->rowCount() > 0) {
             $user = $stmt->fetch(PDO::FETCH_ASSOC);
-            // Vérifier si le mot de passe est correct
             if (password_verify($password, $user['password'])) {
                 $_SESSION['id'] = $user['id'];
                 $_SESSION['email'] = $user['email'];
@@ -34,10 +29,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 header('Location: ../index.php');
                 exit();
             } else {
-                $erreurMDP = true; // Le mot de passe est incorrect
+                $erreurMDP = true; 
             }
         } else {
-            $erreurEmail = true; // L'email est incorrect
+            $erreurEmail = true; 
         }
     } catch (PDOException $e) {
         echo "Connection failed: " . $e->getMessage();
@@ -65,8 +60,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 echo "<p class='error'>L'email n'existe pas.</p>";
             }
             ?>
-            <!-- S'assurer que la variable $email est définie -->
-            <input type="email" name="email" id="email" placeholder="Email" value="<?php echo htmlspecialchars($email); ?>" required>
+            <input type="email" name="email" id="email" placeholder="Email" value="<?php echo $email; ?>" required>
             <input type="password" name="password" id="password" placeholder="Mot de passe" required>
             <input type="submit" name="submit" id="submit" value="Se connecter">
         </form>

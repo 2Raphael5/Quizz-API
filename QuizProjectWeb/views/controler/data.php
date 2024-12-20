@@ -1,8 +1,8 @@
 <?php
 const DBHOST = "localhost";
-const DBNAME = "Quiz";
+const DBNAME = "quiz";
 const DBUSER = "root";
-const DBPASS = "Super";
+const DBPASS = "";
 function db()
 {
     static $db = null;
@@ -26,8 +26,10 @@ function InsertUser($pseudo,$email,$hashedPassword)
     $stmt->execute();
 }
 
-function SelectUser($email){
-    $stmt = db()->prepare("SELECT * FROM User WHERE email = :email"); 
-    $stmt->bindParam(':email', $email);
+function SelectUser($email) {
+    $stmt = db()->prepare("SELECT * FROM User WHERE email = :email");
+    $stmt->bindParam(':email', $email, PDO::PARAM_STR);
     $stmt->execute();
+
+    return $stmt;
 }

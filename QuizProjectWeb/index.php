@@ -5,7 +5,7 @@ $connecterYes = isset($_SESSION['id']) ? true : false;
 $theme = isset($_GET['theme']) ? $_GET['theme'] : null;
 
 try {
-    $pdo = new PDO('mysql:host=localhost;dbname=Quiz;charset=utf8', 'root', 'Super');
+    $pdo = new PDO('mysql:host=localhost;dbname=quiz;charset=utf8', 'root', '');
     $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 } catch (PDOException $e) {
     die('Erreur de connexion : ' . $e->getMessage());
@@ -18,13 +18,25 @@ if (isset($_POST['go']) && $_POST['go'] == 'envoyer') {
 }
 
 if ($theme) {
-    $stmt = $pdo->prepare("SELECT * FROM Question WHERE theme = :theme LIMIT 1");
+    echo "<pre>" . var_export($theme, true) . "</pre>";
+
+    $stmt = $pdo->prepare("SELECT q.id as question_id, q.name as question_name, q.reponse_id 
+                          FROM Question q 
+                          JOIN Quiz quiz ON quiz.id = q.quiz_id 
+                          JOIN Theme t ON t.id = quiz.theme_id 
+                          WHERE t.name = :theme LIMIT 1");
     $stmt->execute(['theme' => $theme]);
     $question = $stmt->fetch(PDO::FETCH_ASSOC);
-    
-    $stmt_answers = $pdo->prepare("SELECT * FROM reponses WHERE id_question = :id_question");
-    $stmt_answers->execute(['id_question' => $question['id_question']]);
-    $reponses = $stmt_answers->fetchAll(PDO::FETCH_ASSOC);
+
+    var_dump($question); 
+
+    if ($question) {
+        $stmt_answers = $pdo->prepare("SELECT p.id, p.name FROM Proposition p WHERE p.question_id = :question_id");
+        $stmt_answers->execute(['question_id' => $question['question_id']]);
+        $reponses = $stmt_answers->fetchAll(PDO::FETCH_ASSOC);
+
+        var_dump($reponses);
+    }
 }
 ?>
 
@@ -63,7 +75,7 @@ if ($theme) {
                 <li><a href="?theme=informatique">Informatique</a></li>
                 <li><a href="?theme=musique">Musique</a></li>
                 <li><a href="?theme=cultureG">Culture Générale</a></li>
-                <li><a href="?theme=loisir">Loisir</a></li>
+                <li><a href="?theme=Microsoft">Loisir</a></li>
             </ul>
         </nav>
         <img src="./views/img/Bienvenue.gif" id="imageAccueil">
@@ -72,7 +84,7 @@ if ($theme) {
 
     <?php if ($connecterYes && $theme && $question): ?>
     <div id="divTheme">
-        <h2 class="question"><?= $question['question'] ?></h2>
+        <h2 class="question"><?= $question['question_name'] ?></h2>
         <nav class="burger-menu">
             <div class="burger-icon">
                 <span></span>
@@ -82,23 +94,24 @@ if ($theme) {
             <ul class="menu">
                 <li><a href="?theme=informatique">Informatique</a></li>
                 <li><a href="?theme=cultureG">Culture Générale</a></li>
-                <li><a href="?theme=loisir">Loisir</a></li>
+                <li><a href="?theme=Microsoft">Loisir</a></li>
             </ul>
         </nav>
 
         <div class="proposition">
-            <?php 
-            $letter = 'A';
-            foreach ($reponses as $reponse): ?>
-                <div class="proposition<?= $letter ?>">
-                    <p><?= $letter ?>. <?= $reponse['reponse'] ?></p>
-                </div>
-            <?php
-                $letter++;
-            endforeach;
-            ?>
+        <div class="proposition">
+        <div class="proposition">
+    <?php 
+    $letter = 'A';
+    foreach ($reponses as $reponse): ?>
+        <div class="proposition<?= $letter ?>" data-id="<?= $reponse['id'] ?>" data-correct="<?= $reponse['id'] == $question['reponse_id'] ? 'true' : 'false' ?>">
+            <button class="answer-btn"><?= $letter ?>. <?= $reponse['name'] ?></button>
         </div>
-    </div>
+    <?php
+        $letter++;
+    endforeach;
+    ?>
+</div>
     <?php endif; ?>
 
     <?php if (!$connecterYes): ?>
