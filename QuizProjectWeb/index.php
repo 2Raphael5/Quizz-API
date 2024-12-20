@@ -25,10 +25,8 @@ if (isset($_POST['go']) && $_POST['go'] == 'envoyer') {
 }
 
 if ($theme) {
-    echo "<pre>" . var_export($theme, true) . "</pre>";
 
     $question = SelectQuizz($theme,$id);
-    var_dump($question);
     if ($question) {
 
         $reponses = SelectQuestion($question);
@@ -37,10 +35,8 @@ if ($theme) {
 $theme = isset($_GET['theme']) ? $_GET['theme'] : null;
 
 if ($theme) {
-    echo "<pre>" . var_export($theme, true) . "</pre>";
 
     $question = SelectQuizz($theme, $id);
-    var_dump($question);  // Ajoutez cette ligne pour déboguer
     if ($question) {
         $reponses = SelectQuestion($question);
     } else {
