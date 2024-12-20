@@ -1,5 +1,6 @@
 <?php
 session_start();
+require_once("./controler/data.php");
 
 $erreurMDP = false; 
 $erreurEmail = false; 
@@ -12,20 +13,17 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $password = filter_input(INPUT_POST, "password", FILTER_SANITIZE_FULL_SPECIAL_CHARS);
 
     try {
-        $conn = new PDO("mysql:host=localhost;dbname=Quiz", "root", "Super");
-        $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-
 
         $sql = "SELECT * FROM User WHERE email = :email";
-        $stmt = $conn->prepare($sql);
+        $stmt = db()->prepare($sql);
         $stmt->bindParam(':email', $email);
         $stmt->execute();
-
+    
         if ($stmt->rowCount() > 0) {
             $user = $stmt->fetch(PDO::FETCH_ASSOC);
-
+    
             if (password_verify($password, $user['password'])) {
-
+    
                 $_SESSION['id'] = $user['id'];
                 $_SESSION['email'] = $user['email'];
                 $connecterYes = true;
@@ -37,7 +35,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         } else {
             $erreurEmail = true; 
         }
-    } catch (PDOException $e) {
+    }
+    catch (PDOException $e) {
         echo "Connection failed: " . $e->getMessage();
     }
 }

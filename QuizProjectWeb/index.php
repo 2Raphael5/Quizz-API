@@ -1,11 +1,18 @@
 <?php
 session_start();
-
+require_once "./views/controler/data.php";
 $connecterYes = isset($_SESSION['id']) ? true : false;
 $theme = isset($_GET['theme']) ? $_GET['theme'] : null;
+$id = filter_input(INPUT_POST,"txt",FILTER_VALIDATE_INT);
+if ($id===null) {
+    $id=1;
+}
+if ($id == 61) {
+    header('Location: ./views/finquizz.php');
+}
 
 try {
-    $pdo = new PDO('mysql:host=localhost;dbname=Quiz;charset=utf8', 'root', 'Super');
+    $pdo = new PDO('mysql:host=localhost;dbname=Quiz;charset=utf8', 'root', '');
     $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 } catch (PDOException $e) {
     die('Erreur de connexion : ' . $e->getMessage());
@@ -20,22 +27,24 @@ if (isset($_POST['go']) && $_POST['go'] == 'envoyer') {
 if ($theme) {
     echo "<pre>" . var_export($theme, true) . "</pre>";
 
-    $stmt = $pdo->prepare("SELECT q.id as question_id, q.name as question_name, q.reponse_id 
-                          FROM Question q 
-                          JOIN Quiz quiz ON quiz.id = q.quiz_id 
-                          JOIN Theme t ON t.id = quiz.theme_id 
-                          WHERE t.name = :theme LIMIT 1");
-    $stmt->execute(['theme' => $theme]);
-    $question = $stmt->fetch(PDO::FETCH_ASSOC);
-
-    var_dump($question); 
-
+    $question = SelectQuizz($theme,$id);
+    var_dump($question);
     if ($question) {
-        $stmt_answers = $pdo->prepare("SELECT p.id, p.name FROM Proposition p WHERE p.question_id = :question_id");
-        $stmt_answers->execute(['question_id' => $question['question_id']]);
-        $reponses = $stmt_answers->fetchAll(PDO::FETCH_ASSOC);
 
-        var_dump($reponses);
+        $reponses = SelectQuestion($question);
+    }
+}
+$theme = isset($_GET['theme']) ? $_GET['theme'] : null;
+
+if ($theme) {
+    echo "<pre>" . var_export($theme, true) . "</pre>";
+
+    $question = SelectQuizz($theme, $id);
+    var_dump($question);  // Ajoutez cette ligne pour déboguer
+    if ($question) {
+        $reponses = SelectQuestion($question);
+    } else {
+        echo "Aucune question trouvée pour ce thème.";
     }
 }
 ?>
@@ -72,10 +81,8 @@ if ($theme) {
                 <span></span>
             </div>
             <ul class="menu">
-                <li><a href="?theme=informatique">Informatique</a></li>
-                <li><a href="?theme=musique">Musique</a></li>
-                <li><a href="?theme=cultureG">Culture Générale</a></li>
-                <li><a href="?theme=Microsoft">Loisir</a></li>
+                <li><a href="?theme=Microsoft">Informatique</a></li>
+                <!--<li><a href="?theme=auto">Auto</a></li>-->
             </ul>
         </nav>
         <img src="./views/img/Bienvenue.gif" id="imageAccueil">
@@ -93,8 +100,7 @@ if ($theme) {
             </div>
             <ul class="menu">
                 <li><a href="?theme=informatique">Informatique</a></li>
-                <li><a href="?theme=cultureG">Culture Générale</a></li>
-                <li><a href="?theme=Microsoft">Loisir</a></li>
+                <!--<li><a href="?theme=auto">Auto</a></li>-->
             </ul>
         </nav>
 
@@ -103,14 +109,25 @@ if ($theme) {
         <div class="proposition">
     <?php 
     $letter = 'A';
+    if ($id<=61){
     foreach ($reponses as $reponse): ?>
         <div class="proposition<?= $letter ?>" data-id="<?= $reponse['id'] ?>" data-correct="<?= $reponse['id'] == $question['reponse_id'] ? 'true' : 'false' ?>">
             <button class="answer-btn"><?= $letter ?>. <?= $reponse['name'] ?></button>
         </div>
     <?php
+   
         $letter++;
     endforeach;
+} 
+    else{
+        var_dump($id);
+    }
     ?>
+    <form action="" method="post">
+    <input type="hidden" name="txt" id="txt" value="<?=$id?>">
+            <button id="suivant">Suivant</button>
+    </form>
+
 </div>
     <?php endif; ?>
 
@@ -122,7 +139,7 @@ if ($theme) {
     <?php endif; ?>
 
     <footer>
-        <p>Made By : Julien, Rafael et Evan</p>
+        <p>Made By : Julien, Raphaël et Evan</p>
     </footer>
     <script src="./JS/scriptIndex.js"></script>
 </body>

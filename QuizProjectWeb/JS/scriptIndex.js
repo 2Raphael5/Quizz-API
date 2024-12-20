@@ -32,3 +32,14 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 });
+
+let suivant = document.getElementById("suivant");
+console.log(suivant);
+suivant.addEventListener('click',Suivant);
+
+function Suivant(){
+    
+    let nb = document.querySelector("#txt");
+    nb.value  = parseInt(nb.value) + 6;
+    console.log(nb.value);
+}
